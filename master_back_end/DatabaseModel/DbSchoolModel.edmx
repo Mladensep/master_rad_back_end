@@ -10,7 +10,10 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="com" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="titleComment" Type="nvarchar(max)" />
+          <Property Name="contentComment" Type="nvarchar(max)" />
+          <Property Name="fbName" Type="nvarchar" MaxLength="50" />
+          <Property Name="dateTime" Type="nvarchar(max)" />
           <Property Name="school_id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="recension">
@@ -20,6 +23,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="rec" Type="float" Nullable="false" />
           <Property Name="school_id" Type="int" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="schools">
           <Key>
@@ -112,7 +116,10 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="com" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="titleComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="contentComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fbName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dateTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="school_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="schools" Relationship="SchoolMasterDBModel.FK_comment_schools" FromRole="comment" ToRole="schools" />
         </EntityType>
@@ -123,6 +130,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="rec" Type="Double" Nullable="false" />
           <Property Name="school_id" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="schools" Relationship="SchoolMasterDBModel.FK_recension_schools" FromRole="recension" ToRole="schools" />
         </EntityType>
         <EntityType Name="schools">
@@ -181,7 +189,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -191,7 +199,10 @@
             <EntityTypeMapping TypeName="SchoolMasterDBModel.comment">
               <MappingFragment StoreEntitySet="comment">
                 <ScalarProperty Name="school_id" ColumnName="school_id" />
-                <ScalarProperty Name="com" ColumnName="com" />
+                <ScalarProperty Name="dateTime" ColumnName="dateTime" />
+                <ScalarProperty Name="fbName" ColumnName="fbName" />
+                <ScalarProperty Name="contentComment" ColumnName="contentComment" />
+                <ScalarProperty Name="titleComment" ColumnName="titleComment" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -199,6 +210,7 @@
           <EntitySetMapping Name="recension">
             <EntityTypeMapping TypeName="SchoolMasterDBModel.recension">
               <MappingFragment StoreEntitySet="recension">
+                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="school_id" ColumnName="school_id" />
                 <ScalarProperty Name="rec" ColumnName="rec" />
                 <ScalarProperty Name="id" ColumnName="id" />

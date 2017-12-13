@@ -12,28 +12,43 @@ namespace master_back_end.Controllers
     public class RecensionController : ApiController
     {
 
+        //0 dobro
+        //1 greska
+        //2 vec je dodata recenzija
 
-        public IHttpActionResult Post(Recension model)
+        public string Post(Recension model)
         {
 
             if (model != null)
             {
 
+
+
                 using (var context = new SchoolMasterDBEntities())
                 {
-                    recension recen = new recension();
-                    recen.school_id = model.school_id;
-                    recen.rec = model.rec;
+                    bool hasUserAddRecension = context.recension.Any(x => x.email.Equals(model.email) && x.school_id == model.school_id);
+                    if (!hasUserAddRecension)
+                    {
 
-                    context.recension.Add(recen);
-                    context.SaveChanges();
+                        recension recen = new recension();
+                        recen.school_id = model.school_id;
+                        recen.rec = model.rec;
+                        recen.email = model.email;
+
+                        context.recension.Add(recen);
+                        context.SaveChanges();
+
+                        return "0";
+                    }
+                    else
+                    {
+                        return "2";
+                    }
                 }
+                
 
-                return Ok();
             }
-
-            return BadRequest();
-
+            return "1";
         }
 
         [System.Web.Http.HttpGet]

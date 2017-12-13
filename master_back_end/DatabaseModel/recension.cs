@@ -17,6 +17,7 @@ namespace master_back_end.DatabaseModel
         public int id { get; set; }
         public double rec { get; set; }
         public int school_id { get; set; }
+        public string email { get; set; }
     
         public virtual schools schools { get; set; }
     }

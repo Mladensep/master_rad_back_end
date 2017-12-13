@@ -5,9 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b2108eff828d4777b723927a5d7e968f" Name="Diagram1">
-        <EntityTypeShape EntityType="SchoolMasterDBModel.comment" Width="1.5" PointX="3" PointY="3.625" />
-        <EntityTypeShape EntityType="SchoolMasterDBModel.recension" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="SchoolMasterDBModel.schools" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="SchoolMasterDBModel.comment" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="SchoolMasterDBModel.recension" Width="1.5" PointX="3" PointY="4.25" />
+        <EntityTypeShape EntityType="SchoolMasterDBModel.schools" Width="1.5" PointX="0.75" PointY="1.5" />
         <EntityTypeShape EntityType="SchoolMasterDBModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" />
         <AssociationConnector Association="SchoolMasterDBModel.FK_comment_schools" />
         <AssociationConnector Association="SchoolMasterDBModel.FK_recension_schools" />

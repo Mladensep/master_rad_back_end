@@ -13,8 +13,9 @@ namespace master_back_end.Controllers
     {
 
         
-        public IHttpActionResult Post(Comment model)
+        public string Post(Comment model)
         {
+            string status = "";
 
             if (model != null)
             {
@@ -23,16 +24,24 @@ namespace master_back_end.Controllers
                 {
                     comment comm = new comment();
                     comm.school_id = model.school_id;
-                    comm.com = model.com;
+                    comm.titleComment = model.titleComment;
+                    comm.contentComment = model.contentComment;
+                    comm.fbName = model.fbName;
+                    comm.dateTime = model.dateTime;
 
+              
                     context.comment.Add(comm);
                     context.SaveChanges();
                 }
 
-                return Ok();
+                status = "radi";
+
+                return status;
             }
 
-            return BadRequest();
+            status = "ne radi";
+
+            return status;
             
         }
 
@@ -52,7 +61,14 @@ namespace master_back_end.Controllers
                 Comment c = new Comment
                 {
                     id = item.id,
-                    com = item.com,
+//                    com = item.com,
+
+                    titleComment = item.titleComment,
+                    contentComment = item.contentComment,
+                    fbName = item.fbName,
+                    dateTime = item.dateTime,
+
+
                     school_id = item.school_id
                 };
 

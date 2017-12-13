@@ -15,7 +15,10 @@ namespace master_back_end.DatabaseModel
     public partial class comment
     {
         public int id { get; set; }
-        public string com { get; set; }
+        public string titleComment { get; set; }
+        public string contentComment { get; set; }
+        public string fbName { get; set; }
+        public string dateTime { get; set; }
         public int school_id { get; set; }
     
         public virtual schools schools { get; set; }
